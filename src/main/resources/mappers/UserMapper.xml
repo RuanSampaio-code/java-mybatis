@@ -1,5 +1,21 @@
-<mapper namespace="com.example.UserMapper">
-    <select id="selectUser" resultType="User">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-mapper-3.dtd">
+<mapper namespace="br.com.pulse.mybatis_demo.mapper.UserMapper">
+
+    <select id="selectUser" parameterType="int" resultType="br.com.pulse.mybatis_demo.model.User">
         SELECT * FROM users WHERE id = #{id}
     </select>
+
+    <insert id="insertUser" parameterType="br.com.pulse.mybatis_demo.model.User">
+        INSERT INTO users (name, email) VALUES (#{name}, #{email})
+    </insert>
+
+    <update id="updateUser" parameterType="br.com.pulse.mybatis_demo.model.User">
+        UPDATE users SET name = #{name}, email = #{email} WHERE id = #{id}
+    </update>
+
+    <delete id="deleteUser" parameterType="int">
+        DELETE FROM users WHERE id = #{id}
+    </delete>
+
 </mapper>
