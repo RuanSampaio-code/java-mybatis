@@ -1,0 +1,13 @@
+<!-- src/main/resources/mybatis/mappers/UsuarioMapper.xml -->
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="br.com.pulse.mybatis_demo.mapper.UsuarioMapper">
+
+    <!-- Mapeia o método findUserById -->
+    <select id="findUserById" parameterType="long" resultType="br.com.pulse.mybatis_demo.model.Usuario">
+        SELECT * FROM usuarios WHERE id = #{id}
+    </select>
+
+</mapper>

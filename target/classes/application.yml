@@ -1,25 +1,23 @@
-server:
-  port: 8081
 
 spring:
-  datasource:
-    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
-    driver-class-name: org.h2.Driver
-    username: sa
-    password: ""
 
+  datasource:
+    url: jdbc:h2:mem:testdb  # URL para o banco de dados em memória
+    username: sa
+    password:  # Senha está vazia para o banco H2 em memória
+    driver-class-name: org.h2.Driver
   h2:
     console:
-      enabled: true
-      path: /h2
-
+      enabled: true  # Habilita o console web do H2
+      path: /h2-console  # Caminho para acessar o console web
   jpa:
     hibernate:
-      ddl-auto: create
-    show-sql: true
-    database-platform: org.hibernate.dialect.H2Dialect
-
-mybatis:
-  type-aliases-package: br.com.pulse.mybatis_demo.model
-  mapper-locations: classpath:mapper/*.xml
+      ddl-auto: update  # Atualiza o esquema do banco de dados automaticamente
+    show-sql: true  # Mostra as SQLs executadas no console
+  mybatis:
+    mapper-locations: classpath:mybatis/mappers/*.xml  # Localização dos arquivos de mapeamento XML do MyBatis
+    type-aliases-package: br.com.pulse.mybatis_demo.model  # Pacote onde estão os aliases dos tipos
+  sql:
+    init:
+      mode: always  # Inicializa o banco de dados a cada inicialização
 

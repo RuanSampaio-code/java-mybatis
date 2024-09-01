@@ -1,17 +1,13 @@
 package br.com.pulse.mybatis_demo.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
-
-
+@Setter
 public class Usuario {
 
     private Long id;
-    private String login;
-    private String senha;
+    private String nome;
+    private String email;
 }
