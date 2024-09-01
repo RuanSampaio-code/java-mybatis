@@ -1,5 +1,10 @@
 <mapper namespace="com.example.UserMapper">
-    <select id="selectUser" resultType="User">
+
+    <select id="findUserById" resultType="br.com.pulse.mybatis_demo.model.User">
         SELECT * FROM users WHERE id = #{id}
+    </select>
+
+    <select id="findAllUsers" resultType="br.com.pulse.mybatis_demo.model.User">
+        SELECT * FROM users
     </select>
 </mapper>
