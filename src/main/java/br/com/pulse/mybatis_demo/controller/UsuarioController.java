@@ -1,6 +1,7 @@
 package br.com.pulse.mybatis_demo.controller;
 
 import br.com.pulse.mybatis_demo.model.Usuario;
+import br.com.pulse.mybatis_demo.model.UsuarioDTO;
 import br.com.pulse.mybatis_demo.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,12 +22,18 @@ public class UsuarioController {
     }
 
     @GetMapping
-    public List<Usuario> findAllUsers(){
+    public List<UsuarioDTO> findAllUsers(){
         return usuarioService.findAllUsers();
     }
 
     @GetMapping("/{id}")
-    public Usuario findById(@PathVariable Long id) {
+    public UsuarioDTO findById(@PathVariable Long id) {
         return usuarioService.findById(id);
+    }
+
+    //Busca usuarios em um intervalo de idades
+    @GetMapping("/idade/{min}/{max}")
+    public List<UsuarioDTO> findUsersByAgeRange(@PathVariable int min, @PathVariable int max) {
+        return usuarioService.findUsersByAgeRange(min, max);
     }
 }

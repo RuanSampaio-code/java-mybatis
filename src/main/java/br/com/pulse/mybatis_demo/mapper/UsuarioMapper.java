@@ -13,4 +13,5 @@ public interface UsuarioMapper {
 
     List<Usuario> findAllUsers();
     Usuario findById(@Param("id") Long id);
+    List<Usuario> findUserBetweenAges(@Param("minIdade") int minIdade, @Param("maxIdade") int maxIdade);
 }
