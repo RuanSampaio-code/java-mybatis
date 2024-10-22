@@ -3,6 +3,7 @@ package br.com.pulse.mybatis_demo.controller;
 import br.com.pulse.mybatis_demo.model.Usuario;
 import br.com.pulse.mybatis_demo.model.UsuarioDTO;
 import br.com.pulse.mybatis_demo.service.UsuarioService;
+import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,7 +28,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public UsuarioDTO findById(@PathVariable Long id) {
+    public UsuarioDTO findById(@Parameter(description = "ID do usuário") @PathVariable Long id) {
         return usuarioService.findById(id);
     }
 

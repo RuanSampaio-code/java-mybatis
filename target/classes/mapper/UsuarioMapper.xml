@@ -19,5 +19,23 @@
         SELECT * FROM usuarios WHERE id = #{id}
     </select>
 
+    <!-- Seleciona usuários em um intervalo de idades -->
+    <select id="findUserBetweenAges" resultMap="Usuario">
+        SELECT * FROM usuarios WHERE idade BETWEEN #{minIdade} AND #{maxIdade}
+    </select>
+
+    <!-- Método para inserir um novo usuário -->
+    <insert id="insertUser" parameterType="br.com.pulse.mybatis_demo.model.Usuario">
+        INSERT INTO usuarios (name, email)
+        VALUES (#{nome}, #{email})
+    </insert>
+
+    <!-- Método para atualizar um usuário existente -->
+    <update id="updateUser" parameterType="br.com.pulse.mybatis_demo.model.Usuario">
+        UPDATE usuarios
+        SET name = #{nome}, email = #{email}
+        WHERE id = #{id}
+    </update>
+
 
 </mapper>
