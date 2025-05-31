@@ -9,6 +9,7 @@
         <result column="id"             property="id"/>
         <result column="name"      property="nome"/>
         <result column="email" property="email"/>
+        <result column="idade" property="idade"/>
     </resultMap>
 
     <select id="findAllUsers" resultMap="Usuario">
@@ -26,8 +27,8 @@
 
     <!-- Método para inserir um novo usuário -->
     <insert id="insertUser" parameterType="br.com.pulse.mybatis_demo.model.Usuario">
-        INSERT INTO usuarios (name, email)
-        VALUES (#{nome}, #{email})
+        INSERT INTO usuarios (name, email, idade)
+        VALUES (#{nome}, #{email}, #{idade})
     </insert>
 
     <!-- Método para atualizar um usuário existente -->
