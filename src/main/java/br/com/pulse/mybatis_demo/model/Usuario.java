@@ -1,11 +1,11 @@
 package br.com.pulse.mybatis_demo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
+@Builder
 @Getter
 @Setter
+@NoArgsConstructor
 @AllArgsConstructor
 public class Usuario {
 
